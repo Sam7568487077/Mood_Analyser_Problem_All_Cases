@@ -6,20 +6,20 @@ public class MoodAnalyser {
 
 
     public void analyseMood(String message) {
-        String happy = "happy";
-        String sad = "sad";
-        String mood = null;
-        String[] messageSplit = message.split(" ");
-        for(int i=0;i<messageSplit.length;i++) {
-            if (messageSplit[i].equals(happy))
-            {
-                mood = "Happy";
+        try {
+            if (message == null) {
+                throw new ExceptionTest("Null point exception Occurred");
+            }
 
-            }
-            else {
-                mood = "Sad";
-            }
+                if (message.contains("happy")) {
+                    System.out.println("Happy");
+                } else {
+                    System.out.println("Sad");
+                }
         }
-        System.out.println(mood);
+        catch(ExceptionTest n)
+        {
+            System.out.println(n.getMessage());
+        }
     }
 }
